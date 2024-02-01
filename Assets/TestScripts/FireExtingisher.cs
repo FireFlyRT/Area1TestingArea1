@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class FireExtingisher : MonoBehaviour
 {
-    public bool Fire;
-    public GameObject prefab;
-    public Transform FirePoint;
+    [SerializeField]
+    private bool _isFirering;
+    [SerializeField]
+    private GameObject _bulletPrefab;
+    [SerializeField]
+    private Transform _firePoint;
 
     void FixedUpdate()
     {
-        if (Fire)
+        if (_isFirering)
         {
-            GameObject obj = Instantiate(prefab);
-            obj.transform.position = FirePoint.position;
+            GameObject obj = Instantiate(_bulletPrefab);
+            obj.transform.position = _firePoint.position;
             obj.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-            //obj.GetComponent<Rigidbody>().useGravity = false;
             obj.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * 10, ForceMode.Impulse);
         }
     }
 
     public void SetFire(bool fire)
     {
-        Fire = fire;
+        _isFirering = fire;
     }
 }

@@ -3,15 +3,15 @@ using UnityEngine;
 public class DropWithSplash : MonoBehaviour
 {
     [SerializeField]
-    private GameObject decal;
+    private GameObject _decalObject;
     [SerializeField]
-    private GameObject obj;
+    private GameObject _fromFiredObject;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (obj.GetComponent<Collider>() != other) 
+        if (_fromFiredObject.GetComponent<Collider>() != other) 
         {
-            GameObject dec = Instantiate(decal);
+            GameObject dec = Instantiate(_decalObject);
             dec.transform.position = transform.position;
             Destroy(this.gameObject);
         }
