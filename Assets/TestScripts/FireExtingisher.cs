@@ -17,8 +17,8 @@ public class FireExtingisher : MonoBehaviour
         {
             GameObject obj = Instantiate(_bulletPrefab);
             obj.transform.position = _firePoint.position;
-            obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            obj.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * 5, ForceMode.Impulse);
+            obj.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
+            obj.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * 10, ForceMode.Impulse);
         }
     }
 
